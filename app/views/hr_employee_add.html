@@ -13,7 +13,7 @@ Question page
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/hr-employee" method="post">
+    <form class="form" action="/hr_employee_add" method="post">
       <h1 class="govuk-heading-xl">Insert New Employee</h1>
       <fieldset class="govuk-fieldset">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -40,14 +40,14 @@ Question page
           <label class="govuk-label" for="address">
             Address
           </label>
-          <input class="govuk-input" id="address" name="employee-address" type="text">
+          <input class="govuk-input" id="address" name="address" type="text">
         </div>
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="salary">
             Salary
           </label>
-          <input class="govuk-input" id="salary" name="employee-salary" type="text">
+          <input class="govuk-input" id="salary" name="salary" type="text">
         </div>
 
         <label class="govuk-label">
@@ -84,24 +84,24 @@ Question page
         </div>
 
         <div class="govuk-form-group">
-          <label class="govuk-label" for="address-town">
+          <label class="govuk-label" for="ni_number">
             National Insurance Number
           </label>
-          <input class="govuk-input" id="address-town" name="address-town" type="text" autocomplete="address-level2">
+          <input class="govuk-input" id="ni_number" name="ni_number" type="text" autocomplete="address-level2">
         </div>
 
         <div class="govuk-form-group">
-          <label class="govuk-label" for="address-county">
+          <label class="govuk-label" for="email">
             Email
           </label>
-          <input class="govuk-input" id="address-county" name="address-county" type="text">
+          <input class="govuk-input" id="email" name="email" type="text">
         </div>
 
         <div class="govuk-form-group">
-          <label class="govuk-label" for="sort">
+          <label class="govuk-label" for="department">
             Department
           </label>
-          <select class="govuk-select" id="sort" name="sort">
+          <select class="govuk-select" id="department" name="department">
             <option value=1>Human Resources</option>
             <option value=3 selected>Finance Team</option>
             <option value=2>Sales Team</option>
@@ -112,9 +112,9 @@ Question page
 
         <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="250">
           <div class="govuk-form-group">
-            <label class="govuk-label" for="address-county">
+            <label class="govuk-label" for="bio">
               Bio
-              <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint"
+              <textarea class="govuk-textarea govuk-js-character-count" id="bio" name="bio"
                 rows="5"></textarea>
           </div>
 
