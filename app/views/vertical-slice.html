@@ -1,0 +1,37 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block pageTitle %}
+	Vertical Slice Demo
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl">
+				DataPilots
+				<span class="govuk-caption-xl">Vertical Slice/Proof of Concept</span>
+			</h1>
+			<table class="govuk-table">
+				<caption class="govuk-table__caption govuk-table__caption--m">Employee Names</caption>
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Name</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					{% for employee in employees %}
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">{{ employee.name }}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+
+{% endblock %}
