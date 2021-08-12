@@ -30,4 +30,11 @@ router.get('/hr_departments', async (req, res) => {
 	})
 });
 
+router.get('/max_sales', async (req, res) => {
+
+	res.render('sales_max', {
+		employees: await emp.getMaxSale()
+	})
+});
+
 module.exports = router

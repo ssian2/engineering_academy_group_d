@@ -9,6 +9,10 @@ exports.getEmployeeDepartments = async () => {
 	return await db.query("SELECT emp_id, CONCAT(fname, ' ', lname) as 'names', name as department FROM employees JOIN department USING(dept_id) ORDER BY dept_id;")
 }
 
+exports.getMaxSale = async () => {
+	return await db.query("select emp_id as id, CONCAT(fname, ' ', lname) AS 'name', total_sales As 'max' FROM employees INNER JOIN sales_employees using(emp_id) order by total_sales DESC LIMIT 1;")
+}
+
 exports.addEmployee = async (employee) => {
 	return await db.query(
 		`INSERT INTO employees 
