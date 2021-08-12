@@ -8,3 +8,4 @@ lib/
 .DS_Store
 app/dbconfig.json
 *.DS_Store
+*/.DS_Store

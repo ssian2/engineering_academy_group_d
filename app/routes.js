@@ -64,10 +64,17 @@ router.post('/hr_employee_add', async (req, res) => {
 	}
 });
 
-router.get('/hr/departments', async (req, res) => {
+router.get('/hr_departments', async (req, res) => {
 
 	res.render('hr_department', {
 		employees: await emp.getEmployeeDepartments()
+	})
+});
+
+router.get('/max_sales', async (req, res) => {
+
+	res.render('sales_max', {
+		employees: await emp.getMaxSale()
 	})
 });
 
