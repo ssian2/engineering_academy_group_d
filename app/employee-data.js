@@ -5,6 +5,10 @@ exports.getEmployeeNames = async () => {
 	return await db.query("SELECT CONCAT_WS(' ', fname, lname) as `name` FROM employees;")
 }
 
+exports.getEmployeeDepartments = async () => {
+	return await db.query("SELECT emp_id, CONCAT(fname, ' ', lname) as 'names', name as department FROM employees JOIN department USING(dept_id) ORDER BY dept_id;")
+}
+
 exports.addEmployee = async (employee) => {
 	return await db.query(
 		`INSERT INTO employees 

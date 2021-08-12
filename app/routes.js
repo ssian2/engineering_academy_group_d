@@ -23,7 +23,7 @@ router.post('/hr_employee_add', async (req, res) => {
 	res.redirect(302, '/');
 });
 
-router.get('/hr/departments', async (req, res) => {
+router.get('/hr_departments', async (req, res) => {
 
 	res.render('hr_department', {
 		employees: await emp.getEmployeeDepartments()
