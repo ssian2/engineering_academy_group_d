@@ -13,17 +13,16 @@ router.get('/vertical', async (req, res) => {
 
 router.post('/hr_employee_add', async (req, res) => {
 	var employee = req.body;
-	console.log(employee);
-	console.log('' + employee['dob-year'] + '-' + employee['dob-month'] + '-' + employee['dob-day']);
 
 	var isValid = 1;
 
 	if (isValid) {
 		await emp.addEmployee(employee);
 	}
+	
+	res.redirect(302, '/');
 });
 
-	res.redirect(302, '/');
 router.get('/hr/departments', async (req, res) => {
 
 	res.render('hr_department', {
