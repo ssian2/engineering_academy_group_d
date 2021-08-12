@@ -11,4 +11,11 @@ router.get('/vertical', async (req, res) => {
 	})
 });
 
+router.get('/hr/departments', async (req, res) => {
+
+	res.render('hr_department', {
+		employees: await emp.getEmployeeDepartments()
+	})
+});
+
 module.exports = router

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block pageTitle %}
+	Employees by Department
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl">
+				Employeess by Department
+			</h1>
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Name</th>
+                        <th scope="col" class="govuk-table__header">Departent</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					{% for employee in employees %}
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">{{ employee.names }}</td>
+                            <td class="govuk-table__cell">{{ employee.department }}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+
+{% endblock %}
