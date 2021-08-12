@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/index">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">HR Directory</h1>
+
+			<h2 class="govuk-heading-m">What would you like to do</h2>
+
+			<ul class="govuk-list govuk-list--bullet">
+				<li>
+					<a href="/hr_employee_add">Add an enmployee</a>
+				</li>
+				<li>
+					<a href="/hr_department">Generate Report</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+    </div>
+  </div>
+{% endblock %}
