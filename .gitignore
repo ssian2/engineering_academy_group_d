@@ -7,3 +7,4 @@ usage-data-config.json
 lib/
 .DS_Store
 app/dbconfig.json
+*.DS_Store
