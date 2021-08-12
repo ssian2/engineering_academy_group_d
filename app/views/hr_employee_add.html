@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
 
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
 {% block pageTitle %}
 Question page
 {% endblock %}
@@ -11,126 +13,145 @@ Question page
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-column-two-thirds">
+		<form class="form" action="/hr_employee_add" method="post">
+			<h1 class="govuk-heading-xl">Insert New Employee</h1>
 
-    <form class="form" action="/hr_employee_add" method="post">
-      <h1 class="govuk-heading-xl">Insert New Employee</h1>
-      <fieldset class="govuk-fieldset">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <h1 class="govuk-fieldset__heading">
-            Enter all fields
-          </h1>
-        </legend>
+			<fieldset class="govuk-fieldset">
 
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="fname">
-            First Name
-          </label>
-          <input class="govuk-input" id="fname" name="first-name" type="text">
-        </div>
+				<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+					<h1 class="govuk-fieldset__heading">
+						Enter all fields
+					</h1>
+				</legend>
 
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="lname">
-            Last Name
-          </label>
-          <input class="govuk-input" id="lname" name="last-name" type="text">
-        </div>
+				<div class="govuk-form-group">
+					<label class="govuk-label" for="fname">
+						First Name
+					</label>
+					{% if fnameerror %} 
+						<div class="govuk-error-message">{{ fnameerror }}</div> 
+					{% endif %}
+					<input class="govuk-input" id="fname" name="fname" type="text" value="{{fname}}">
+				</div>
 
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="address">
-            Address
-          </label>
-          <input class="govuk-input" id="address" name="address" type="text">
-        </div>
+				<div class="govuk-form-group">
+					<label class="govuk-label" for="lname">
+						Last Name
+					</label>
+					{% if lnameerror %} 
+						<div class="govuk-error-message">{{ lnameerror }}</div> 
+					{% endif %}
+					<input class="govuk-input" id="lname" name="lname" type="text" value="{{lname}}">
+				</div>
 
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="salary">
-            Salary
-          </label>
-          <input class="govuk-input" id="salary" name="salary" type="text">
-        </div>
+				<div class="govuk-form-group">
+					<label class="govuk-label" for="address">
+						Address
+					</label>
+					{% if addresserror %} 
+						<div class="govuk-error-message">{{ addresserror }}</div> 
+					{% endif %}
+					<input class="govuk-input" id="address" name="address" type="text" value="{{address}}">
+				</div>
 
-        <label class="govuk-label">
-          Date of Birth
-        </label>
-        <div class="govuk-date-input" id="dob">
-          <div class="govuk-date-input__item">
-            <div class="govuk-form-group">
-              <label class="govuk-label govuk-date-input__label" for="dob-day">
-                Day
-              </label>
-              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-day" name="dob-day"
-                type="text" pattern="[0-9]*" inputmode="numeric">
-            </div>
-          </div>
-          <div class="govuk-date-input__item">
-            <div class="govuk-form-group">
-              <label class="govuk-label govuk-date-input__label" for="dob-month">
-                Month
-              </label>
-              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month" name="dob-month"
-                type="text" pattern="[0-9]*" inputmode="numeric">
-            </div>
-          </div>
-          <div class="govuk-date-input__item">
-            <div class="govuk-form-group">
-              <label class="govuk-label govuk-date-input__label" for="dob-year">
-                Year
-              </label>
-              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="dob-year"
-                type="text" pattern="[0-9]*" inputmode="numeric">
-            </div>
-          </div>
-        </div>
+				<div class="govuk-form-group">
+					<label class="govuk-label" for="salary">
+						Salary
+					</label>
+					{% if salaryerror %} 
+						<div class="govuk-error-message">{{ salaryerror }}</div> 
+					{% endif %}
+					<input class="govuk-input" id="salary" name="salary" type="text" value="{{salary}}">
+				</div>
 
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="ni_number">
-            National Insurance Number
-          </label>
-          <input class="govuk-input" id="ni_number" name="ni_number" type="text" autocomplete="address-level2">
-        </div>
+				<label class="govuk-label">
+					Date of Birth
+				</label>
+				{% if doberror %} 
+					<div class="govuk-error-message">{{ doberror }}</div> 
+				{% endif %}
+				<div class="govuk-date-input" id="dob">
+					<div class="govuk-date-input__item">
+						<div class="govuk-form-group">
+							<label class="govuk-label govuk-date-input__label" for="dob_day">
+								Day
+							</label>
+							<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob_day" name="dob_day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{dob_day}}">
+						</div>
+					</div>
+					<div class="govuk-date-input__item">
+						<div class="govuk-form-group">
+							<label class="govuk-label govuk-date-input__label" for="dob_month">
+								Month
+							</label>
+							<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob_month" name="dob_month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{dob_month}}">
+						</div>
+					</div>
+					<div class="govuk-date-input__item">
+						<div class="govuk-form-group">
+							<label class="govuk-label govuk-date-input__label" for="dob_year">
+								Year
+							</label>
+							<input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob_year" name="dob_year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{dob_year}}">
+						</div>
+					</div>
+				</div>
 
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="email">
-            Email
-          </label>
-          <input class="govuk-input" id="email" name="email" type="text">
-        </div>
+				<div class="govuk-form-group">
+					<label class="govuk-label" for="ni_number">
+						National Insurance Number
+					</label>
+					{% if nierror %} 
+						<div class="govuk-error-message">{{ nierror }}</div> 
+					{% endif %}
+					<input class="govuk-input" id="ni_number" name="ni_number" type="text" autocomplete="address-level2" value="{{ni_number}}">
+				</div>
 
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="department">
-            Department
-          </label>
-          <select class="govuk-select" id="department" name="department">
-            <option value=1>Human Resources</option>
-            <option value=3 selected>Finance Team</option>
-            <option value=2>Sales Team</option>
-            <option value=4>Talent Manager</option>
-            <option value=5>Development Team</option>
-          </select>
-        </div>
+				<div class="govuk-form-group">
+					<label class="govuk-label" for="email">
+						Email
+					</label>
+					{% if emailerror %} 
+						<div class="govuk-error-message">{{ emailerror }}</div> 
+					{% endif %}
+					<input class="govuk-input" id="email" name="email" type="text" value="{{email}}">
+				</div>
 
-        <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="250">
-          <div class="govuk-form-group">
-            <label class="govuk-label" for="bio">
-              Bio
-              <textarea class="govuk-textarea govuk-js-character-count" id="bio" name="bio"
-                rows="5"></textarea>
-          </div>
+				<div class="govuk-form-group">
+					<label class="govuk-label" for="department">
+						Department
+					</label>
+					<select class="govuk-select" id="department" name="department">
+						<option value=1>Human Resources</option>
+						<option value=3 selected>Finance Team</option>
+						<option value=2>Sales Team</option>
+						<option value=4>Talent Manager</option>
+						<option value=5>Development Team</option>
+					</select>
+				</div>
 
-          <div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
-            You can enter up to 250 characters
-          </div>
+				<div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="250">
+					<div class="govuk-form-group">
+						<label class="govuk-label" for="bio">
+							Bio
+							<textarea class="govuk-textarea govuk-js-character-count" id="bio" name="bio"
+								rows="5"></textarea>
+					</div>
 
-        </div>
-      </fieldset>
+					<div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+						You can enter up to 250 characters
+					</div>
+
+				</div>
+			</fieldset>
 
 
-      <button class="govuk-button" data-module="govuk-button">Continue</button>
+			<button class="govuk-button" data-module="govuk-button">Continue</button>
 
-    </form>
+		</form>
 
-  </div>
+	</div>
 </div>
 
 {% endblock %}

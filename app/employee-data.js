@@ -12,9 +12,9 @@ exports.addEmployee = async (employee) => {
 		VALUES
 			(?, ?, ?, ?, ?, ?, ?, ?);`,
 		[
-			employee['first-name'],
-			employee['last-name'],
-			'' + employee['dob-year'] + '-' + employee['dob-month'] + '-' + employee['dob-day'],
+			employee['fname'],
+			employee['lname'],
+			'' + employee['dob_year'] + '-' + employee['dob_month'] + '-' + employee['dob_day'],
 			employee.ni_number,
 			employee.email,
 			employee.salary,
